@@ -1,0 +1,26 @@
+{
+  "name": "waste-food-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manoj-14/waste-food-management-system.git"
+  },
+  "author": "Manoj M , Jeevan , Manohar , harshith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Manoj-14/waste-food-management-system/issues"
+  },
+  "homepage": "https://github.com/Manoj-14/waste-food-management-system#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "hbs": "^4.2.0",
+    "mysql": "^2.18.1"
+  }
+}

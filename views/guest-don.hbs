@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Donor</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav-bar " >
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    {{!-- <li><a href="#about-us">About US</a></li> --}}
+                    {{!-- <li><a href="#support">Contact</a></li> --}}
+                    <li class="drop-link">
+                        <a href="#">Sign In</a>
+                        <ul class="drop-nav" id="pages-nav">
+                            <li><a href="/admin-login">Admin</a></li>
+                            <li><a href="/restaurant-login">Restaurant</a></li>
+                            <li><a href="/ngo-login">NGO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+    <div class="admin-log" id="guest-reg">
+            <h1>Donor Information</h1>
+            <form class="admin-login" action="/auth/admin-login" method="post" autocomplete="off">
+                <div class="material-textfield">
+                    <input placeholder=" " required name="donor-name" class="guest-name" type="text">
+                    <label>Name</label>
+                </div>
+                <div class="material-textfield">
+                    <input placeholder=" " required name="donor-number" class="guest-pass" type="number">
+                    <label>Number</label>
+                </div>
+                <div class="material-textfield">
+                    <input placeholder=" " required name="donor-Address" class="guest-addr" type="text">
+                    <label>Address</label>
+                </div>
+                <div class="material-textfield">
+                    <input placeholder=" " required name="food-quantity" class="guest-quan" type="number">
+                    <label>Quantity Of Food</label>
+                </div>
+                <div class="material-textfield">
+                    <input placeholder=" " required name="discription" class="guest-desc" type="text">
+                    <label>Discription</label>
+                </div>
+
+                <div class="material-textfield">
+                    <input placeholder=" " class="submit" type="submit" value="Send">
+                </div>
+                {{!-- <div class="sub-head">
+                    <spam>or</spam>
+                    <h3>Sign IN</h3>
+                    <spam>as</spam>
+                </div>
+                <div class="material-textfield">
+                    <div class="sign-link">
+                        <a href="/ngo-login" id="ngo">NGO</a>
+                    </div>
+                    <div class="sign-link">
+                        <a href="/restaurant-login" id="restaurant">Restaurant</a>
+                    </div>
+                </div> --}}
+            </form>
+            <div>
+</body>
+</html>

@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -27,13 +27,13 @@ body .wrapper nav {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #080357;
   padding-top: 10px;
   background-color: rgba(255, 255, 255, 0.363);
@@ -81,6 +81,10 @@ body .wrapper nav ul li .drop-nav {
   padding: 0;
   padding-bottom: 5px;
 }
+#pages-nav {
+  top: 2rem;
+  right: 23rem;
+}
 
 body .wrapper header {
   height: 100vh;
@@ -88,13 +92,13 @@ body .wrapper header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 0 8rem;
-  background-image: url("../images/header-bg.jpg");
+  background-image: url("/header-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -126,12 +130,12 @@ body .wrapper main {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background-color: #ffc15e;
 }
 
@@ -152,11 +156,11 @@ body .wrapper footer {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: #f5ff90;
 }
 
@@ -172,8 +176,8 @@ body .wrapper footer .card {
   background-color: inherit;
   width: 100%;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 body .wrapper footer .card .card-link {
@@ -181,4 +185,106 @@ body .wrapper footer .card .card-link {
   font-size: 20px;
   font-weight: 700;
 }
-/*# sourceMappingURL=style.css.map */
+.donor a {
+  color: #fff;
+}
+.donor {
+  background-color: #080357;
+  color: #fff;
+  width: fit-content;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+#guest-reg {
+  height: 100vh;
+  padding-top: 5rem;
+}
+.admin-log {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.material-textfield {
+  position: relative;
+  margin-top: 1rem;
+}
+.sub-head {
+  text-align: center;
+  margin: 0.6rem 0;
+}
+.sub-head * {
+  padding: 5px 0;
+}
+/* input */
+label {
+  position: absolute;
+  font-size: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: gray;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+input {
+  width: 25rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1rem 0.7rem;
+  color: #080357;
+  transition: 0.1s ease-out;
+  font-weight: 700;
+}
+input:focus {
+  border-color: #080357;
+}
+input:focus + label {
+  color: #080357;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.guest-desc {
+  height: 7rem;
+}
+.submit {
+  width: 100%;
+  font-weight: 700;
+  color: #fff;
+  background-color: #080357;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#other-sign {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.material-textfield:last-child div {
+  color: #fff;
+  background-color: #080357;
+  padding: 6px 10px;
+  flex-grow: 1;
+  flex-basis: 0;
+  cursor: pointer;
+}
+.material-textfield:last-child div a {
+  font-size: larger;
+  font-weight: 600;
+}
