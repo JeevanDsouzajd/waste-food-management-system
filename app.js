@@ -19,7 +19,7 @@ const publicDirectory = path.join(__dirname, "./public");
 app.use(express.static(publicDirectory));
 app.use(express.static("images"));
 
-app.use(express.urlencoded({ extended: true })); // to grab the data from from
+app.use(express.urlencoded({ extended: false })); // to grab the data from from
 app.use(express.json()); // in form of json
 
 db.connect((error) => {

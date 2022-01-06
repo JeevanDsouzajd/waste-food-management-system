@@ -233,7 +233,8 @@ label {
   transform-origin: left top;
   pointer-events: none;
 }
-input {
+input,
+textarea {
   width: 25rem;
   font-size: 1rem;
   outline: none;
@@ -244,20 +245,24 @@ input {
   transition: 0.1s ease-out;
   font-weight: 700;
 }
-input:focus {
+input:focus,
+textarea:focus {
   border-color: #080357;
 }
-input:focus + label {
+input:focus + label,
+textarea:focus + label {
   color: #080357;
   top: 0;
   transform: translateY(-50%) scale(0.9);
 }
-input:not(:placeholder-shown) + label {
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
   top: 0;
   transform: translateY(-50%) scale(0.9);
 }
 .guest-desc {
   height: 7rem;
+  width: 100%;
 }
 .submit {
   width: 100%;

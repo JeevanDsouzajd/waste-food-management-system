@@ -17,7 +17,7 @@ router.get("/restaurant-login", (req, res) => {
   res.render("restaurant-login");
 });
 
-router.get("/donor", (req, res) => {
+router.get("/guest-don", (req, res) => {
   res.render("guest-don");
 });
 
