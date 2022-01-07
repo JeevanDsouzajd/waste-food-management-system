@@ -196,16 +196,16 @@ body .wrapper footer .card .card-link {
   padding: 4px 8px;
 }
 #guest-reg {
-  height: 100vh;
-  padding-top: 5rem;
+  padding-top: 12rem;
 }
 .admin-log {
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .material-textfield {
   position: relative;
@@ -292,4 +292,21 @@ textarea:not(:placeholder-shown) + label {
 .material-textfield:last-child div a {
   font-size: larger;
   font-weight: 600;
+}
+
+.success,
+.danger {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.success {
+  color: rgb(9, 231, 102);
+}
+.danger {
+  color: rgb(231, 9, 57);
+}
+.sign-link a,
+.sign-link a :hover {
+  color: #fff !important;
 }

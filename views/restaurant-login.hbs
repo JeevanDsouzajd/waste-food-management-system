@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="../styles/admin-login.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <title>Restaurant</title>
 
     </head>
@@ -32,13 +31,19 @@
         <div class="admin-log">
             
             <h1>Restaurant Login</h1>
+            {{#if successMsg}}
+                <h5 class="success">{{successMsg}}</h5>
+            {{/if}}
+            {{#if errorMsg}}
+                <h5 class="danger">{{errorMsg}}</h5>
+            {{/if}}
             <form class="admin-login" action="/auth/restaurant-login" method="post" autocomplete="off">
                 <div class="material-textfield">
-                    <input placeholder=" " required name="rest-email" class="ngo-user" type="email">
+                    <input placeholder=" " required name="restEmail" class="ngo-user" type="email">
                     <label>Email</label>
                 </div>
                 <div class="material-textfield">
-                    <input placeholder=" " required name="rest-password" class="ngo-pass" type="password">
+                    <input placeholder=" " required name="restPassword" class="ngo-pass" type="password">
                     <label>Password</label>
                 </div>
 

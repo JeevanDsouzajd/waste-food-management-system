@@ -29,10 +29,13 @@
                         </ul>
                     </li>
                 </ul>
-            </nav>
+        </nav>
     </div>
     <div class="admin-log" id="guest-reg">
             <h1>Donor Information</h1>
+            {{#if sendMsg }}
+                    <h5 class="success">{{sendMsg}}</h5>
+            {{/if}}
             <form class="admin-login" action="/auth/guest-don" method="post" autocomplete="off">
                 <div class="material-textfield">
                     <input placeholder=" " required name="donorName" class="guest-name" type="text">
@@ -47,6 +50,10 @@
                     <label>Address</label>
                 </div>
                 <div class="material-textfield">
+                    <input placeholder=" " required name="donorPin" maxlength="6" class="guest-quan"  type="number">
+                    <label>Area Pincode</label>
+                </div>
+                <div class="material-textfield">
                     <input placeholder=" " required name="foodQuantity" class="guest-quan" type="number">
                     <label>Quantity Of Food</label>
                 </div>
@@ -54,26 +61,9 @@
                     <textarea placeholder=" " required name="discription" class="guest-desc" type="text"></textarea>
                     <label>Discription</label>
                 </div>
-
                 <div class="material-textfield">
                     <input placeholder=" " class="submit" type="submit" value="Send">
                 </div>
-                {{#if sendMsg }}
-                    <h4 class="alert alert-success mt-4">{{sendMsg}}</h4>
-                {{/if}}
-                {{!-- <div class="sub-head">
-                    <spam>or</spam>
-                    <h3>Sign IN</h3>
-                    <spam>as</spam>
-                </div>
-                <div class="material-textfield">
-                    <div class="sign-link">
-                        <a href="/ngo-login" id="ngo">NGO</a>
-                    </div>
-                    <div class="sign-link">
-                        <a href="/restaurant-login" id="restaurant">Restaurant</a>
-                    </div>
-                </div> --}}
             </form>
             <div>
 </body>

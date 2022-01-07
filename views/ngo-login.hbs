@@ -31,13 +31,19 @@
     </div>
         <div class="admin-log">
             <h1>NGO Login</h1>
+            {{#if successMsg}}
+                <h5 class="success">{{successMsg}}</h5>
+            {{/if}}
+            {{#if errorMsg}}
+                <h5 class="danger">{{errorMsg}}</h5>
+            {{/if}}
             <form class="admin-login" action="/auth/ngo-login" method="post" autocomplete="off">
                 <div class="material-textfield">
-                    <input placeholder=" " required name="ngo-email" class="ngo-user" type="email">
+                    <input placeholder=" " required name="ngoEmail" class="ngo-user" type="email">
                     <label>Email</label>
                 </div>
                 <div class="material-textfield">
-                    <input placeholder=" " required name="ngo-password" class="ngo-pass" type="password">
+                    <input placeholder=" " required name="ngoPassword" class="ngo-pass" type="password">
                     <label>Password</label>
                 </div>
 
