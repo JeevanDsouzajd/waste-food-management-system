@@ -1,0 +1,127 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <nav class="admin-navbar">
+      <h3 class="admin-title">Admin Dashboard</h3>
+      <a href="#">Logout</a>
+    </nav>
+    <main class="main">
+      <aside class="side-nav">
+        <div class="prof-div" id="active" id="">
+          <p class="prof-link">Profile</p>
+        </div>
+        <div class="prof-div" id="">
+          <p class="prof-link">Restaurants</p>
+        </div>
+        <div class="prof-div" id="">
+          <p class="prof-link">NGOs</p>
+        </div>
+        <div class="prof-div" id="">
+          <p class="prof-link">Orders</p>
+        </div>
+      </aside>
+      {{#if passUsername}}
+        <form class="prof-article" method="post">
+          <div class="prof-detail">
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="text"
+                disabled
+                value="{{passUsername}}"
+              />
+              <label>Username</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="text"
+                disabled
+                value="{{passName}}"
+              />
+              <label>Name</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="email"
+                disabled
+                value="{{passEmail}}"
+              />
+              <label>Email</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="number"
+                disabled
+                value="{{passPhone}}"
+              />
+              <label>Number</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="text"
+                disabled
+                value="{{passAddress}}"
+              />
+              <label>Address</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="adminusername"
+                class="admin-user"
+                type="password"
+                disabled
+                value="{{passPassword}}"
+              />
+              <label>Password</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                class="submit"
+                type="button"
+                id="edit-prof"
+                value="Edit"
+              />
+              <input
+                placeholder=" "
+                class="submit"
+                id="save-prof"
+                type="submit"
+                disabled
+                value="Save"
+              />
+            </div>
+          </div>
+        </form>
+      {{/if}}
+    </main>
+    <script src="/index.js"></script>
+  </body>
+</html>

@@ -1,9 +1,13 @@
 const express = require("express");
-
+const app = express();
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+
+const path = require("path");
 
 const mysql = require("mysql");
 const dotenv = require("dotenv");
+const async = require("hbs/lib/async");
 dotenv.config({ path: "./.env" });
 const db = mysql.createConnection({
   host: process.env.DATABASE_HOST,
@@ -12,36 +16,52 @@ const db = mysql.createConnection({
   database: process.env.DATABASE,
 });
 
+// global varialbles
+var profUser;
 // admin login
-exports.adminLogin = (req, res) => {
-  // const obj = JSON.parse(JSON.stringify(req.body));
+exports.adminLogin = async (req, res) => {
+  const obj = JSON.parse(JSON.stringify(req.body));
   const adminUser = req.body.adminusername;
   const adminpass = req.body.adminpassword;
-  db.query(
-    "SELECT username , password FROM admin where username = ?",
-    [adminUser],
-    async (error, results) => {
-      if (error) {
-        console.log({ error });
-      }
-      const result = JSON.parse(JSON.stringify(results));
-      if (result.length > 0) {
-        if (result[0].password === adminpass) {
-          return res.render("admin-login", {
-            successMsg: "Login Successfull",
-          });
+  try {
+    db.query(
+      "SELECT * FROM admin where username = ?",
+      [adminUser],
+      async (error, results) => {
+        if (error) {
+          console.log({ error });
+        }
+        const result = JSON.parse(JSON.stringify(results));
+
+        // console.log(passUsername);
+        if (result.length > 0) {
+          if (result[0].password === adminpass) {
+            profUser = adminUser;
+            res.render("admin-dashboard", {
+              passUsername: result[0].username,
+              passName: result[0].name,
+              passEmail: result[0].email,
+              passPhone: result[0].pho_no,
+              passPassword: result[0].password,
+              passAddress: result[0].address,
+              successMsg: "Logout Successful",
+            });
+            // app.post("/admin-dashboard", (req, res) => res.send(req.body));
+          } else {
+            return res.render("admin-login", {
+              errorMsg: "Invalid password",
+            });
+          }
         } else {
           return res.render("admin-login", {
-            errorMsg: "Invalid password",
+            errorMsg: "Invalid",
           });
         }
-      } else {
-        return res.render("admin-login", {
-          errorMsg: "Invalid",
-        });
       }
-    }
-  );
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // ngo login
@@ -137,4 +157,8 @@ exports.guestReg = (req, res) => {
       }
     }
   );
+};
+exports.adminDashboard = (req, res) => {
+  // res.send("Login");
+  console.log(req.body);
 };

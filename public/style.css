@@ -245,8 +245,13 @@ textarea {
   transition: 0.1s ease-out;
   font-weight: 700;
 }
+#edit-prof {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
 input:focus,
-textarea:focus {
+textarea:focus,
+#edit-prof {
   border-color: #080357;
 }
 input:focus + label,
@@ -309,4 +314,70 @@ textarea:not(:placeholder-shown) + label {
 .sign-link a,
 .sign-link a :hover {
   color: #fff !important;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.admin-navbar {
+  background-color: #080357;
+  color: #fff;
+  font-weight: 500;
+  border-bottom: 5px solid transparent;
+  transition: border 300ms linear;
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+}
+.main {
+  display: flex;
+}
+.side-nav {
+  background-color: #080357;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  padding: 0 2rem;
+  padding-top: 5rem;
+  /* align-items: center; */
+  text-align: left;
+  gap: 1rem;
+}
+.side-nav p {
+  /* font-size: 1.2rem; */
+  color: #fff;
+  font-weight: 700;
+}
+.prof-div {
+  border-bottom: 5px solid transparent;
+  transition: border 300ms linear;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.prof-div:hover {
+  border-bottom: 5px solid #ff9f1c;
+}
+.prof-article {
+  /* flex-grow: 8; */
+  /* flex-basis: 0; */
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.edit-prof {
+  font-size: 1rem;
+}
+#active {
+  border-bottom: 5px solid #ff9f1c;
+}
+.material-textfield:last-child {
+  display: flex;
 }

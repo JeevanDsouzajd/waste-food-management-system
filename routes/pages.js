@@ -21,4 +21,7 @@ router.get("/guest-don", (req, res) => {
   res.render("guest-don");
 });
 
+router.get("/admin-dashboard", (req, res) => {
+  res.render("admin-dashboard");
+});
 module.exports = router;

@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const dotenv = require("dotenv");
 const path = require("path");
+const hbs = require("hbs");
 
 dotenv.config({ path: "./.env" });
 
@@ -14,8 +15,8 @@ const db = mysql.createConnection({
 });
 
 app.set("view engine", "hbs");
-
 const publicDirectory = path.join(__dirname, "./public");
+hbs.registerPartials(__dirname + "/views/partial/");
 app.use(express.static(publicDirectory));
 app.use(express.static("images"));
 
