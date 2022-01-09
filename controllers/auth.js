@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-
+const loginController = require("./login");
 const path = require("path");
 
 const mysql = require("mysql");
@@ -17,10 +17,10 @@ const db = mysql.createConnection({
 });
 
 // global varialbles
-var profUser;
+// var profUser;
 // admin login
+
 exports.adminLogin = async (req, res) => {
-  const obj = JSON.parse(JSON.stringify(req.body));
   const adminUser = req.body.adminusername;
   const adminpass = req.body.adminpassword;
   try {
@@ -32,11 +32,8 @@ exports.adminLogin = async (req, res) => {
           console.log({ error });
         }
         const result = JSON.parse(JSON.stringify(results));
-
-        // console.log(passUsername);
         if (result.length > 0) {
           if (result[0].password === adminpass) {
-            profUser = adminUser;
             res.render("admin-dashboard", {
               passUsername: result[0].username,
               passName: result[0].name,
@@ -46,7 +43,6 @@ exports.adminLogin = async (req, res) => {
               passAddress: result[0].address,
               successMsg: "Logout Successful",
             });
-            // app.post("/admin-dashboard", (req, res) => res.send(req.body));
           } else {
             return res.render("admin-login", {
               errorMsg: "Invalid password",
@@ -68,31 +64,42 @@ exports.adminLogin = async (req, res) => {
 exports.ngoLogin = (req, res) => {
   const ngoEmail = req.body.ngoEmail;
   const ngoPass = req.body.ngoPassword;
-  db.query(
-    "SELECT ngo_email , ngo_password FROM ngo where ngo_email = ?",
-    [ngoEmail],
-    async (error, results) => {
-      if (error) {
-        console.log({ error });
-      }
-      const result = JSON.parse(JSON.stringify(results));
-      if (result.length > 0) {
-        if (result[0].ngo_password === ngoPass) {
-          return res.render("ngo-login", {
-            successMsg: "Login Successfull",
-          });
+  try {
+    db.query(
+      "SELECT * FROM ngo where ngo_email = ?",
+      [ngoEmail],
+      async (error, results) => {
+        if (error) {
+          console.log({ error });
+        }
+        const result = JSON.parse(JSON.stringify(results));
+        if (result.length > 0) {
+          if (result[0].ngo_password === ngoPass) {
+            res.render("ngo-dashboard", {
+              passPin: result[0].ngo_pincode,
+              passId: result[0].ngo_unique_id,
+              passName: result[0].ngo_name,
+              passEmail: result[0].ngo_email,
+              passPhone: result[0].ngo_phone,
+              passPassword: result[0].ngo_password,
+              passAddress: result[0].ngo_address,
+              successMsg: "Logout Successful",
+            });
+          } else {
+            return res.render("ngo-login", {
+              errorMsg: "Invalid password",
+            });
+          }
         } else {
           return res.render("ngo-login", {
-            errorMsg: "Invalid password",
+            errorMsg: "Invalid",
           });
         }
-      } else {
-        return res.render("ngo-login", {
-          errorMsg: "Invalid",
-        });
       }
-    }
-  );
+    );
+  } catch (error) {
+    console.log(error);
+  }
   // console.log(req.body);
   // res.send("Ngo");
 };
@@ -101,31 +108,43 @@ exports.ngoLogin = (req, res) => {
 exports.restLogin = (req, res) => {
   const restEmail = req.body.restEmail;
   const restPass = req.body.restPassword;
-  db.query(
-    "SELECT rest_email , rest_password FROM restaurant where rest_email = ?",
-    [restEmail],
-    async (error, results) => {
-      if (error) {
-        console.log({ error });
-      }
-      const result = JSON.parse(JSON.stringify(results));
-      if (result.length > 0) {
-        if (result[0].rest_password === restPass) {
-          return res.render("restaurant-login", {
-            successMsg: "Login Successfull",
-          });
+  try {
+    db.query(
+      "SELECT * FROM restaurant where rest_email = ?",
+      [restEmail],
+      async (error, results) => {
+        if (error) {
+          console.log({ error });
+        }
+        const result = JSON.parse(JSON.stringify(results));
+
+        // console.log(passUsername);
+        if (result.length > 0) {
+          if (result[0].rest_password === restPass) {
+            res.render("rest-dashboard", {
+              passPin: result[0].rest_pin,
+              passName: result[0].rest_name,
+              passEmail: result[0].rest_email,
+              passPhone: result[0].rest_phone,
+              passPassword: result[0].rest_password,
+              passAddress: result[0].rest_loc,
+              successMsg: "Logout Successful",
+            });
+          } else {
+            return res.render("restaurant-login", {
+              errorMsg: "Invalid password",
+            });
+          }
         } else {
           return res.render("restaurant-login", {
-            errorMsg: "Invalid password",
+            errorMsg: "Invalid",
           });
         }
-      } else {
-        return res.render("restaurant-login", {
-          errorMsg: "Invalid",
-        });
       }
-    }
-  );
+    );
+  } catch (error) {
+    console.log(error);
+  }
   // console.log(req.body);
   // res.send("Restaurent");
 };
@@ -158,7 +177,5 @@ exports.guestReg = (req, res) => {
     }
   );
 };
-exports.adminDashboard = (req, res) => {
-  // res.send("Login");
-  console.log(req.body);
-};
+
+// Admin Dashboard

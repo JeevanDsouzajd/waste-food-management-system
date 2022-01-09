@@ -24,4 +24,11 @@ router.get("/guest-don", (req, res) => {
 router.get("/admin-dashboard", (req, res) => {
   res.render("admin-dashboard");
 });
+
+router.get("/rest-dashboard", (req, res) => {
+  res.render("rest-dashboard");
+});
+router.get("/ngo-dashboard", (req, res) => {
+  res.render("ngo-dashboard");
+});
 module.exports = router;

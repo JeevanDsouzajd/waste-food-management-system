@@ -4,12 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-    <title>Admin Dashboard</title>
+    <title>NGO Dashboard</title>
   </head>
   <body>
     <nav class="admin-navbar">
-      <h3 class="admin-title">Admin Dashboard</h3>
-      <a href="/">Logout</a>
+      <h3 class="admin-title">NGO Dashboard</h3>
+      <a href="#">Logout</a>
     </nav>
     <main class="main">
       <aside class="side-nav">
@@ -17,44 +17,20 @@
           <p class="prof-link">Profile</p>
         </div>
         <div class="prof-div" id="">
-          <p class="prof-link">Restaurants</p>
-        </div>
-        <div class="prof-div" id="">
-          <p class="prof-link">NGOs</p>
-        </div>
-        <div class="prof-div" id="">
-          <p class="prof-link">Orders</p>
+          <p class="prof-link">Messages</p>
         </div>
       </aside>
-
-      {{#if passUsername}}
-        <form class="prof-article" action="/auth/admin-dashboard" method="post">
+      {{#if passEmail}}
+        <form class="prof-article" method="post">
           <div class="prof-detail">
-            <h5
-              class="success"
-              style="width: 100%; text-align:center"
-            >{{updated}}</h5>
             <div class="material-textfield">
               <input
                 placeholder=" "
                 required
-                name="adminUsername"
+                name="ngoName"
                 class="admin-user"
                 type="text"
-                readonly
-                {{! disabled }}
-                value="{{passUsername}}"
-              />
-              <label>Username</label>
-            </div>
-            <div class="material-textfield">
-              <input
-                placeholder=" "
-                required
-                name="adminName"
-                class="admin-user"
-                type="text"
-                {{! disabled }}
+                disabled
                 value="{{passName}}"
               />
               <label>Name</label>
@@ -63,10 +39,22 @@
               <input
                 placeholder=" "
                 required
-                name="adminEmail"
+                name="ngoUid"
+                class="admin-user"
+                type="text"
+                disabled
+                value="{{passId}}"
+              />
+              <label>Name</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="ngoEmail"
                 class="admin-user"
                 type="email"
-                {{! disabled }}
+                disabled
                 value="{{passEmail}}"
               />
               <label>Email</label>
@@ -75,10 +63,10 @@
               <input
                 placeholder=" "
                 required
-                name="adminPhone"
+                name="ngoPhone"
                 class="admin-user"
                 type="number"
-                {{! disabled }}
+                disabled
                 value="{{passPhone}}"
               />
               <label>Number</label>
@@ -87,10 +75,10 @@
               <input
                 placeholder=" "
                 required
-                name="adminAddr"
+                name="ngoAddr"
                 class="admin-user"
                 type="text"
-                {{! disabled }}
+                disabled
                 value="{{passAddress}}"
               />
               <label>Address</label>
@@ -99,10 +87,22 @@
               <input
                 placeholder=" "
                 required
-                name="adminPass"
+                name="ngoPin"
+                class="admin-user"
+                type="number"
+                disabled
+                value="{{passPin}}"
+              />
+              <label>Pincode</label>
+            </div>
+            <div class="material-textfield">
+              <input
+                placeholder=" "
+                required
+                name="ngoPass"
                 class="admin-user"
                 type="password"
-                {{! disabled }}
+                disabled
                 value="{{passPassword}}"
               />
               <label>Password</label>
@@ -111,9 +111,16 @@
               <input
                 placeholder=" "
                 class="submit"
+                type="button"
+                id="edit-prof"
+                value="Edit"
+              />
+              <input
+                placeholder=" "
+                class="submit"
                 id="save-prof"
                 type="submit"
-                {{! disabled }}
+                disabled
                 value="Save"
               />
             </div>
